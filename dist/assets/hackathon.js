@@ -324,7 +324,7 @@ define("hackathon/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 9,
             "column": 0
           }
         },
@@ -340,9 +340,17 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode(" ");
+        var el1 = dom.createTextNode(" \n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
@@ -353,13 +361,14 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(3);
+        var morphs = new Array(4);
         morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 9, 9, contextualElement);
         return morphs;
       },
-      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [4, 26], [4, 51]]]], ["content", "outlet", ["loc", [null, [5, 0], [5, 10]]]]],
+      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [5, 0], [5, 25]]]], ["inline", "link-to", ["bom", "bom"], [], ["loc", [null, [6, 0], [6, 23]]]], ["content", "outlet", ["loc", [null, [8, 0], [8, 10]]]]],
       locals: [],
       templates: []
     };
