@@ -295,7 +295,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 8,
+            "line": 13,
             "column": 0
           }
         },
@@ -311,7 +311,21 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("hr");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\ninsert shiny bootstrap landing page\n\n\n");
+        var el1 = dom.createTextNode("\ninsert shiny bootstrap landing page\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("button");
+        dom.setAttribute(el1, "type", "button");
+        dom.setAttribute(el1, "class", "btn btn-primary");
+        var el2 = dom.createTextNode("Primary");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -321,10 +335,10 @@ define("hackathon/templates/home", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        morphs[0] = dom.createMorphAt(fragment, 7, 7, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [7, 0], [7, 10]]]]],
+      statements: [["content", "outlet", ["loc", [null, [12, 0], [12, 10]]]]],
       locals: [],
       templates: []
     };
@@ -362,7 +376,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+23f794a6"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+a190e034"});
 }
 
 /* jshint ignore:end */
