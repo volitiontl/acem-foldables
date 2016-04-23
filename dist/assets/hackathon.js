@@ -51,6 +51,23 @@ define('hackathon/components/hack-draggable', ['exports', 'ember'], function (ex
 
 	});
 });
+define('hackathon/controllers/activity', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({
+
+		name: "default",
+		activities: [],
+
+		actions: {
+			add: function add() {
+				this.get('activities').pushObject({
+					name: this.name
+				});
+			}
+
+		}
+
+	});
+});
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
@@ -273,9 +290,13 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
     this.route('home');
     this.route('demo');
     this.route('bom');
+    this.route('activity');
   });
 
   exports['default'] = Router;
+});
+define('hackathon/routes/activity', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
 });
 define('hackathon/routes/bom', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
@@ -308,6 +329,120 @@ define('hackathon/services/ajax', ['exports', 'ember-ajax/services/ajax'], funct
     }
   });
 });
+define("hackathon/templates/activity", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 8,
+              "column": 0
+            },
+            "end": {
+              "line": 10,
+              "column": 0
+            }
+          },
+          "moduleName": "hackathon/templates/activity.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("br");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          return morphs;
+        },
+        statements: [["content", "a.name", ["loc", [null, [9, 0], [9, 10]]]]],
+        locals: ["a"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/activity.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("activity\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("button");
+        var el2 = dom.createTextNode("add activity");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [5]);
+        var morphs = new Array(4);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        morphs[1] = dom.createElementMorph(element0);
+        morphs[2] = dom.createMorphAt(fragment, 9, 9, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["value", ["subexpr", "@mut", [["get", "name", ["loc", [null, [5, 14], [5, 18]]]]], [], []]], ["loc", [null, [5, 0], [5, 20]]]], ["element", "action", ["add"], [], ["loc", [null, [6, 8], [6, 24]]]], ["block", "each", [["get", "activities", ["loc", [null, [8, 8], [8, 18]]]]], [], 0, null, ["loc", [null, [8, 0], [10, 9]]]], ["content", "outlet", ["loc", [null, [11, 0], [11, 10]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
 define("hackathon/templates/application", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
@@ -324,7 +459,7 @@ define("hackathon/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 10,
             "column": 0
           }
         },
@@ -350,6 +485,10 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("hr");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -361,14 +500,15 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(4);
+        var morphs = new Array(5);
         morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
-        morphs[3] = dom.createMorphAt(fragment, 9, 9, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 7, 7, contextualElement);
+        morphs[4] = dom.createMorphAt(fragment, 11, 11, contextualElement);
         return morphs;
       },
-      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [5, 0], [5, 25]]]], ["inline", "link-to", ["bom", "bom"], [], ["loc", [null, [6, 0], [6, 23]]]], ["content", "outlet", ["loc", [null, [8, 0], [8, 10]]]]],
+      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [5, 0], [5, 25]]]], ["inline", "link-to", ["bom", "bom"], [], ["loc", [null, [6, 0], [6, 23]]]], ["inline", "link-to", ["activity", "activity"], [], ["loc", [null, [7, 0], [7, 33]]]], ["content", "outlet", ["loc", [null, [9, 0], [9, 10]]]]],
       locals: [],
       templates: []
     };

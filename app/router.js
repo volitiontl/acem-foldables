@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('home');
   this.route('demo');
   this.route('bom');
+  this.route('activity');
 });
 
 export default Router;
