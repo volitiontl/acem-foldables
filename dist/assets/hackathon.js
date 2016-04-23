@@ -33,14 +33,23 @@ define('hackathon/components/app-version', ['exports', 'ember-cli-app-version/co
   });
 });
 define('hackathon/components/hack-draggable', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Component.extend({
+	exports['default'] = _ember['default'].Component.extend({
 
-    didInsertElement: function didInsertElement() {
+		didInsertElement: function didInsertElement() {
+			var _this = this;
 
-      this.$().draggable({});
-    }
+			var self = this.$();
+			self.draggable({
+				drag: function drag() {
 
-  });
+					_this.set('x', self.position().left);
+					_this.set('y', self.position().top);
+				}
+
+			});
+		}
+
+	});
 });
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
@@ -52,7 +61,7 @@ define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _e
 
       actions: {
          add: function add() {
-            this.get('list').pushObject({ name: 1 });
+            this.get('list').pushObject({ name: 1, x: 0, y: 0 });
          }
 
       }
@@ -60,7 +69,14 @@ define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _e
    });
 });
 define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Controller.extend({});
+  exports['default'] = _ember['default'].Controller.extend({
+
+    activate: function activate() {
+      this._super.apply(this, arguments); // Call super at the beginning
+      window.scrollTo(0, 0);
+    }
+
+  });
 });
 define('hackathon/controllers/object', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
@@ -250,6 +266,11 @@ define('hackathon/routes/demo', ['exports', 'ember'], function (exports, _ember)
 define("hackathon/routes/home", ["exports", "ember"], function (exports, _ember) {
     exports["default"] = _ember["default"].Route.extend({
 
+        activate: function activate() {
+            this._super();
+            window.scrollTo(0, 0);
+        },
+
         actions: {
             yell: function yell(abc) {
                 _ember["default"].$("#" + abc)[0].scrollIntoView();
@@ -353,8 +374,16 @@ define("hackathon/templates/components/hack-draggable", ["exports"], function (e
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "style", "width:100px;height:100px;border-style:solid;position:absolute");
-        var el2 = dom.createTextNode("\nabc\n");
+        dom.setAttribute(el1, "style", "width:100px;height:100px; border-style:solid;position:absolute");
+        var el2 = dom.createTextNode("\nabc ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode(" ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -366,11 +395,14 @@ define("hackathon/templates/components/hack-draggable", ["exports"], function (e
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        var element0 = dom.childAt(fragment, [0]);
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(element0, 1, 1);
+        morphs[1] = dom.createMorphAt(element0, 3, 3);
+        morphs[2] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         return morphs;
       },
-      statements: [["content", "yield", ["loc", [null, [5, 0], [5, 9]]]]],
+      statements: [["content", "x", ["loc", [null, [2, 4], [2, 9]]]], ["content", "y", ["loc", [null, [2, 10], [2, 15]]]], ["content", "yield", ["loc", [null, [5, 0], [5, 9]]]]],
       locals: [],
       templates: []
     };
@@ -390,7 +422,7 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
               "column": 0
             },
             "end": {
-              "line": 16,
+              "line": 17,
               "column": 0
             }
           },
@@ -404,7 +436,7 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n\n\n");
+          var el1 = dom.createTextNode("\n\n\n\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -414,7 +446,55 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
           dom.insertBoundary(fragment, 0);
           return morphs;
         },
-        statements: [["content", "hack-draggable", ["loc", [null, [13, 0], [13, 19]]]]],
+        statements: [["inline", "hack-draggable", [], ["x", ["subexpr", "@mut", [["get", "i.x", ["loc", [null, [13, 20], [13, 23]]]]], [], []], "y", ["subexpr", "@mut", [["get", "i.y", ["loc", [null, [13, 26], [13, 29]]]]], [], []]], ["loc", [null, [13, 0], [13, 31]]]]],
+        locals: ["i"],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 23,
+              "column": 0
+            },
+            "end": {
+              "line": 26,
+              "column": 0
+            }
+          },
+          "moduleName": "hackathon/templates/demo.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode(" - ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("hr");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          return morphs;
+        },
+        statements: [["content", "i.x", ["loc", [null, [24, 0], [24, 7]]]], ["content", "i.y", ["loc", [null, [24, 10], [24, 17]]]]],
         locals: ["i"],
         templates: []
       };
@@ -433,7 +513,7 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 23,
+            "line": 29,
             "column": 0
           }
         },
@@ -465,7 +545,7 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "id", "container11");
-        dom.setAttribute(el1, "style", "width:500px;height:500px;border-style:solid;position:absolute");
+        dom.setAttribute(el1, "style", "width:500px;height:500px;border-style:solid;position:relative");
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
@@ -473,7 +553,15 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
         var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n\n");
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -483,15 +571,16 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [3]);
-        var morphs = new Array(3);
+        var morphs = new Array(4);
         morphs[0] = dom.createElementMorph(element0);
         morphs[1] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
-        morphs[2] = dom.createMorphAt(fragment, 9, 9, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 11, 11, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 13, 13, contextualElement);
         return morphs;
       },
-      statements: [["element", "action", ["add"], [], ["loc", [null, [5, 46], [5, 63]]]], ["block", "each", [["get", "list", ["loc", [null, [12, 8], [12, 12]]]]], [], 0, null, ["loc", [null, [12, 0], [16, 9]]]], ["content", "outlet", ["loc", [null, [22, 0], [22, 10]]]]],
+      statements: [["element", "action", ["add"], [], ["loc", [null, [5, 46], [5, 63]]]], ["block", "each", [["get", "list", ["loc", [null, [12, 8], [12, 12]]]]], [], 0, null, ["loc", [null, [12, 0], [17, 9]]]], ["block", "each", [["get", "list", ["loc", [null, [23, 8], [23, 12]]]]], [], 1, null, ["loc", [null, [23, 0], [26, 9]]]], ["content", "outlet", ["loc", [null, [28, 0], [28, 10]]]]],
       locals: [],
-      templates: [child0]
+      templates: [child0, child1]
     };
   })());
 });

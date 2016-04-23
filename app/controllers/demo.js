@@ -6,7 +6,7 @@ list:[],
 
 actions:{
    add:function(){
-	this.get('list').pushObject({name:1})
+	this.get('list').pushObject({name:1,x:0,y:0})
 
    }
 

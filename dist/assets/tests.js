@@ -13,7 +13,7 @@ define('hackathon/tests/components/hack-draggable.jshint', ['exports'], function
   QUnit.module('JSHint - components/hack-draggable.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/hack-draggable.js should pass jshint.\ncomponents/hack-draggable.js: line 7, col 23, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'components/hack-draggable.js should pass jshint.\ncomponents/hack-draggable.js: line 7, col 18, Missing semicolon.\ncomponents/hack-draggable.js: line 11, col 39, Missing semicolon.\ncomponents/hack-draggable.js: line 12, col 38, Missing semicolon.\ncomponents/hack-draggable.js: line 15, col 3, Missing semicolon.\n\n4 errors');
   });
 });
 define('hackathon/tests/controllers/demo.jshint', ['exports'], function (exports) {
@@ -22,7 +22,7 @@ define('hackathon/tests/controllers/demo.jshint', ['exports'], function (exports
   QUnit.module('JSHint - controllers/demo.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/demo.js should pass jshint.\ncontrollers/demo.js: line 9, col 42, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'controllers/demo.js should pass jshint.\ncontrollers/demo.js: line 9, col 50, Missing semicolon.\n\n1 error');
   });
 });
 define('hackathon/tests/controllers/home.jshint', ['exports'], function (exports) {
@@ -311,7 +311,7 @@ define('hackathon/tests/routes/home.jshint', ['exports'], function (exports) {
   QUnit.module('JSHint - routes/home.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 8, col 41, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'routes/home.js should pass jshint.\nroutes/home.js: line 12, col 41, Missing semicolon.\n\n1 error');
   });
 });
 define('hackathon/tests/test-helper', ['exports', 'hackathon/tests/helpers/resolver', 'ember-qunit'], function (exports, _hackathonTestsHelpersResolver, _emberQunit) {

@@ -8,15 +8,21 @@ demo
 
 <hr>
 
-<div id="container11" style="width:500px;height:500px;border-style:solid;position:absolute">
+<div id="container11" style="width:500px;height:500px;border-style:solid;position:relative">
 {{#each list as |i|}}
-{{ hack-draggable}}
+{{ hack-draggable x=i.x y=i.y}}
+
 
 
 {{/each}}
 
 
 </div>
+<hr>
 
+{{#each list as |i|}}
+{{i.x}} - {{i.y}}<hr>
+
+{{/each}}
 
 {{outlet}}
