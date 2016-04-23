@@ -35,6 +35,9 @@ define('hackathon/components/app-version', ['exports', 'ember-cli-app-version/co
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
+define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({});
+});
 define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({});
 });
@@ -215,9 +218,13 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
 
   Router.map(function () {
     this.route('home');
+    this.route('demo');
   });
 
   exports['default'] = Router;
+});
+define('hackathon/routes/demo', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
 });
 define("hackathon/routes/home", ["exports", "ember"], function (exports, _ember) {
     exports["default"] = _ember["default"].Route.extend({
@@ -291,6 +298,52 @@ define("hackathon/templates/application", ["exports"], function (exports) {
     };
   })());
 });
+define("hackathon/templates/demo", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/demo.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("hackathon/templates/home", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
@@ -307,7 +360,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 52,
+            "line": 51,
             "column": 0
           }
         },
@@ -319,8 +372,6 @@ define("hackathon/templates/home", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("hr");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -624,7 +675,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [9, 3]);
+        var element0 = dom.childAt(fragment, [8, 3]);
         var element1 = dom.childAt(element0, [1, 0]);
         var element2 = dom.childAt(element0, [3, 0]);
         var element3 = dom.childAt(element0, [5, 0]);
@@ -638,10 +689,10 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         morphs[3] = dom.createElementMorph(element4);
         morphs[4] = dom.createElementMorph(element5);
         morphs[5] = dom.createElementMorph(element6);
-        morphs[6] = dom.createMorphAt(fragment, 13, 13, contextualElement);
+        morphs[6] = dom.createMorphAt(fragment, 12, 12, contextualElement);
         return morphs;
       },
-      statements: [["element", "action", ["yell", "v1"], [], ["loc", [null, [18, 63], [18, 86]]]], ["element", "action", ["yell", "v2"], [], ["loc", [null, [19, 63], [19, 86]]]], ["element", "action", ["yell", "v3"], [], ["loc", [null, [20, 63], [20, 86]]]], ["element", "action", ["yell", "v4"], [], ["loc", [null, [21, 63], [21, 86]]]], ["element", "action", ["yell", "v5"], [], ["loc", [null, [22, 63], [22, 86]]]], ["element", "action", ["yell", "v6"], [], ["loc", [null, [23, 63], [23, 86]]]], ["content", "outlet", ["loc", [null, [51, 0], [51, 10]]]]],
+      statements: [["element", "action", ["yell", "v1"], [], ["loc", [null, [17, 63], [17, 86]]]], ["element", "action", ["yell", "v2"], [], ["loc", [null, [18, 63], [18, 86]]]], ["element", "action", ["yell", "v3"], [], ["loc", [null, [19, 63], [19, 86]]]], ["element", "action", ["yell", "v4"], [], ["loc", [null, [20, 63], [20, 86]]]], ["element", "action", ["yell", "v5"], [], ["loc", [null, [21, 63], [21, 86]]]], ["element", "action", ["yell", "v6"], [], ["loc", [null, [22, 63], [22, 86]]]], ["content", "outlet", ["loc", [null, [50, 0], [50, 10]]]]],
       locals: [],
       templates: []
     };
