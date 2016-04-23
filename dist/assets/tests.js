@@ -120,6 +120,15 @@ define('hackathon/tests/router.jshint', ['exports'], function (exports) {
     assert.ok(true, 'router.js should pass jshint.');
   });
 });
+define('hackathon/tests/routes/home.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/home.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/home.js should pass jshint.');
+  });
+});
 define('hackathon/tests/test-helper', ['exports', 'hackathon/tests/helpers/resolver', 'ember-qunit'], function (exports, _hackathonTestsHelpersResolver, _emberQunit) {
 
   (0, _emberQunit.setResolver)(_hackathonTestsHelpersResolver['default']);
@@ -131,6 +140,27 @@ define('hackathon/tests/test-helper.jshint', ['exports'], function (exports) {
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass jshint.');
+  });
+});
+define('hackathon/tests/unit/routes/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:home', 'Unit | Route | home', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('hackathon/tests/unit/routes/home-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/routes/home-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/home-test.js should pass jshint.');
   });
 });
 /* jshint ignore:start */
