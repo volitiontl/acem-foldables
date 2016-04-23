@@ -1,0 +1,12 @@
+bill of materials
+<hr>
+
+{{#each items as |i|}}
+{{i.name}} x {{i.count}} = {{i.total}}<br>
+{{/each}}
+
+
+<hr>
+total cost: ${{total}}
+
+{{outlet}}

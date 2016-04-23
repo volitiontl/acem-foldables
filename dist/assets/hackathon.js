@@ -54,6 +54,22 @@ define('hackathon/components/hack-draggable', ['exports', 'ember'], function (ex
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
+define("hackathon/controllers/bom", ["exports", "ember"], function (exports, _ember) {
+	exports["default"] = _ember["default"].Controller.extend({
+
+		items: [{ name: "panel", count: 100, total: 100 }, { name: "connectors", count: 400, total: 400 }, { name: "ductable roles", count: 40, total: 200 }],
+
+		total: _ember["default"].computed('items', function () {
+			var list = this.items;
+			var total = 0;
+			for (var i = 0; i < list.length; i++) {
+				total += list[i].total;
+			}
+			return total;
+		})
+
+	});
+});
 define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _ember) {
    exports['default'] = _ember['default'].Controller.extend({
 
@@ -256,9 +272,13 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
   Router.map(function () {
     this.route('home');
     this.route('demo');
+    this.route('bom');
   });
 
   exports['default'] = Router;
+});
+define('hackathon/routes/bom', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
 });
 define('hackathon/routes/demo', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
@@ -342,6 +362,124 @@ define("hackathon/templates/application", ["exports"], function (exports) {
       statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [4, 26], [4, 51]]]], ["content", "outlet", ["loc", [null, [5, 0], [5, 10]]]]],
       locals: [],
       templates: []
+    };
+  })());
+});
+define("hackathon/templates/bom", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 6,
+              "column": 0
+            }
+          },
+          "moduleName": "hackathon/templates/bom.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode(" x ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode(" = ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("br");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(3);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+          morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          return morphs;
+        },
+        statements: [["content", "i.name", ["loc", [null, [5, 0], [5, 10]]]], ["content", "i.count", ["loc", [null, [5, 13], [5, 24]]]], ["content", "i.total", ["loc", [null, [5, 27], [5, 38]]]]],
+        locals: ["i"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 13,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/bom.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("bill of materials\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\ntotal cost: $");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 7, 7, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 9, 9, contextualElement);
+        return morphs;
+      },
+      statements: [["block", "each", [["get", "items", ["loc", [null, [4, 8], [4, 13]]]]], [], 0, null, ["loc", [null, [4, 0], [6, 9]]]], ["content", "total", ["loc", [null, [10, 13], [10, 22]]]], ["content", "outlet", ["loc", [null, [12, 0], [12, 10]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
