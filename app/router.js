@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('demo');
   this.route('bom');
   this.route('activity');
+  this.route('statedebug');
 });
 
 export default Router;

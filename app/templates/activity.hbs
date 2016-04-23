@@ -1,0 +1,11 @@
+activity
+<hr>
+
+
+{{input value=name}}
+<button {{action "add"}}>add activity</button>
+<hr>
+{{#each activities as |a| }}
+{{a.name}}<br>
+{{/each}}
+{{outlet}}
