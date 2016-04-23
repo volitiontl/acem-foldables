@@ -32,11 +32,32 @@ define('hackathon/components/app-version', ['exports', 'ember-cli-app-version/co
     name: name
   });
 });
+define('hackathon/components/hack-draggable', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({
+
+    didInsertElement: function didInsertElement() {
+
+      this.$().draggable({});
+    }
+
+  });
+});
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
 define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Controller.extend({});
+   exports['default'] = _ember['default'].Controller.extend({
+
+      list: [],
+
+      actions: {
+         add: function add() {
+            this.get('list').pushObject({ name: 1 });
+         }
+
+      }
+
+   });
 });
 define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({});
@@ -278,6 +299,10 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode(" ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
@@ -287,24 +312,25 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(2);
+        var morphs = new Array(3);
         morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
         return morphs;
       },
-      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["content", "outlet", ["loc", [null, [5, 0], [5, 10]]]]],
+      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [4, 26], [4, 51]]]], ["content", "outlet", ["loc", [null, [5, 0], [5, 10]]]]],
       locals: [],
       templates: []
     };
   })());
 });
-define("hackathon/templates/demo", ["exports"], function (exports) {
+define("hackathon/templates/components/hack-draggable", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.5",
         "loc": {
@@ -314,7 +340,100 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/components/hack-draggable.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "style", "width:100px;height:100px;border-style:solid;position:absolute");
+        var el2 = dom.createTextNode("\nabc\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["content", "yield", ["loc", [null, [5, 0], [5, 9]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("hackathon/templates/demo", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.5",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 12,
+              "column": 0
+            },
+            "end": {
+              "line": 16,
+              "column": 0
+            }
+          },
+          "moduleName": "hackathon/templates/demo.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          return morphs;
+        },
+        statements: [["content", "hack-draggable", ["loc", [null, [13, 0], [13, 19]]]]],
+        locals: ["i"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 23,
             "column": 0
           }
         },
@@ -326,6 +445,36 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("demo\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("button");
+        dom.setAttribute(el1, "type", "button");
+        dom.setAttribute(el1, "class", "btn btn-primary");
+        var el2 = dom.createTextNode("Add");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "id", "container11");
+        dom.setAttribute(el1, "style", "width:500px;height:500px;border-style:solid;position:absolute");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -333,14 +482,16 @@ define("hackathon/templates/demo", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        dom.insertBoundary(fragment, 0);
+        var element0 = dom.childAt(fragment, [3]);
+        var morphs = new Array(3);
+        morphs[0] = dom.createElementMorph(element0);
+        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [7]), 1, 1);
+        morphs[2] = dom.createMorphAt(fragment, 9, 9, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]]]],
+      statements: [["element", "action", ["add"], [], ["loc", [null, [5, 46], [5, 63]]]], ["block", "each", [["get", "list", ["loc", [null, [12, 8], [12, 12]]]]], [], 0, null, ["loc", [null, [12, 0], [16, 9]]]], ["content", "outlet", ["loc", [null, [22, 0], [22, 10]]]]],
       locals: [],
-      templates: []
+      templates: [child0]
     };
   })());
 });
@@ -730,7 +881,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+2f499a45"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+4bcd7396"});
 }
 
 /* jshint ignore:end */
