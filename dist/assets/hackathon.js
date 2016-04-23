@@ -35,6 +35,9 @@ define('hackathon/components/app-version', ['exports', 'ember-cli-app-version/co
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
+define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({});
+});
 define('hackathon/controllers/object', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
@@ -216,8 +219,17 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
 
   exports['default'] = Router;
 });
-define('hackathon/routes/home', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Route.extend({});
+define("hackathon/routes/home", ["exports", "ember"], function (exports, _ember) {
+    exports["default"] = _ember["default"].Route.extend({
+
+        actions: {
+            yell: function yell(abc) {
+                _ember["default"].$("#" + abc)[0].scrollIntoView();
+            }
+
+        }
+
+    });
 });
 define('hackathon/services/ajax', ['exports', 'ember-ajax/services/ajax'], function (exports, _emberAjaxServicesAjax) {
   Object.defineProperty(exports, 'default', {
@@ -285,7 +297,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type", "multiple-nodes"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.5",
         "loc": {
@@ -295,7 +307,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 13,
+            "line": 52,
             "column": 0
           }
         },
@@ -307,25 +319,303 @@ define("hackathon/templates/home", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createTextNode("home page\n\n");
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("hr");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\ninsert shiny bootstrap landing page\n\n");
+        var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createElement("button");
-        dom.setAttribute(el1, "type", "button");
-        dom.setAttribute(el1, "class", "btn btn-primary");
-        var el2 = dom.createTextNode("Primary");
+        var el1 = dom.createComment(" Custom css that makes this example work like it does: ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("style");
+        dom.setAttribute(el1, "type", "text/css");
+        dom.setAttribute(el1, "scoped", "");
+        var el2 = dom.createTextNode("\n.scrollspy-example {\n    position: relative;\n    height:200px; \n    margin-top: .5rem;\n    overflow: auto;\n}\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment(" Actual scrollspy markup: ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("nav");
+        dom.setAttribute(el1, "id", "navbar-example2");
+        dom.setAttribute(el1, "class", "navbar navbar-default");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h3");
+        dom.setAttribute(el2, "class", "navbar-brand");
+        var el3 = dom.createTextNode("Foldable");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("ul");
+        dom.setAttribute(el2, "class", "nav nav-pills");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v1");
+        var el5 = dom.createTextNode("Who");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v2");
+        var el5 = dom.createTextNode("What");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v3");
+        var el5 = dom.createTextNode("Where");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v4");
+        var el5 = dom.createTextNode("When");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v5");
+        var el5 = dom.createTextNode("Why");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        dom.setAttribute(el3, "class", "nav-item");
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4, "class", "nav-link");
+        dom.setAttribute(el4, "data-target", "#v6");
+        var el5 = dom.createTextNode("How");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n\n\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
-        var el2 = dom.createTextNode("\n\n");
+        dom.setAttribute(el1, "data-spy", "scroll");
+        dom.setAttribute(el1, "data-target", "#navbar-example2");
+        dom.setAttribute(el1, "data-offset", "0");
+        dom.setAttribute(el1, "class", "scrollspy-example");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v1");
+        var el3 = dom.createTextNode("Who?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("May ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" the ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" gods ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" forgive ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" me.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v2");
+        var el3 = dom.createTextNode("What?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("For ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" this ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" rampant ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" abuse ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" of ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" br-tags.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v3");
+        var el3 = dom.createTextNode("Where?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("May ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" the ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" gods ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" forgive ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" me.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v4");
+        var el3 = dom.createTextNode("When?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("May ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" the ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" gods ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" forgive ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" me.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v5");
+        var el3 = dom.createTextNode("Why?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("May ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" the ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" gods ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" forgive ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" me.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h4");
+        dom.setAttribute(el2, "id", "v6");
+        var el3 = dom.createTextNode("How?");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("May ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" the ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" gods ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" forgive ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("br");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" me.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n\n\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -334,11 +624,24 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 7, 7, contextualElement);
+        var element0 = dom.childAt(fragment, [9, 3]);
+        var element1 = dom.childAt(element0, [1, 0]);
+        var element2 = dom.childAt(element0, [3, 0]);
+        var element3 = dom.childAt(element0, [5, 0]);
+        var element4 = dom.childAt(element0, [7, 0]);
+        var element5 = dom.childAt(element0, [9, 0]);
+        var element6 = dom.childAt(element0, [11, 0]);
+        var morphs = new Array(7);
+        morphs[0] = dom.createElementMorph(element1);
+        morphs[1] = dom.createElementMorph(element2);
+        morphs[2] = dom.createElementMorph(element3);
+        morphs[3] = dom.createElementMorph(element4);
+        morphs[4] = dom.createElementMorph(element5);
+        morphs[5] = dom.createElementMorph(element6);
+        morphs[6] = dom.createMorphAt(fragment, 13, 13, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [12, 0], [12, 10]]]]],
+      statements: [["element", "action", ["yell", "v1"], [], ["loc", [null, [18, 63], [18, 86]]]], ["element", "action", ["yell", "v2"], [], ["loc", [null, [19, 63], [19, 86]]]], ["element", "action", ["yell", "v3"], [], ["loc", [null, [20, 63], [20, 86]]]], ["element", "action", ["yell", "v4"], [], ["loc", [null, [21, 63], [21, 86]]]], ["element", "action", ["yell", "v5"], [], ["loc", [null, [22, 63], [22, 86]]]], ["element", "action", ["yell", "v6"], [], ["loc", [null, [23, 63], [23, 86]]]], ["content", "outlet", ["loc", [null, [51, 0], [51, 10]]]]],
       locals: [],
       templates: []
     };
@@ -376,7 +679,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+a190e034"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+2f499a45"});
 }
 
 /* jshint ignore:end */

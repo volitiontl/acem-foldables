@@ -1,12 +1,51 @@
-home page
 
 <hr>
-insert shiny bootstrap landing page
 
-<button type="button" class="btn btn-primary">Primary</button>
+<!-- Custom css that makes this example work like it does: -->
+<style type="text/css" scoped>
+.scrollspy-example {
+    position: relative;
+    height:200px; 
+    margin-top: .5rem;
+    overflow: auto;
+}
+</style>
 
-<div>
+<!-- Actual scrollspy markup: -->
+<nav id="navbar-example2" class="navbar navbar-default">
+  <h3 class="navbar-brand">Foldable</h3>
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a class="nav-link" data-target="#v1" {{action "yell" "v1" }}>Who</a></li>
+    <li class="nav-item"><a class="nav-link" data-target="#v2" {{action "yell" "v2" }}  >What</a></li>
+    <li class="nav-item"><a class="nav-link" data-target="#v3" {{action "yell" "v3" }} >Where</a></li>
+    <li class="nav-item"><a class="nav-link" data-target="#v4" {{action "yell" "v4" }}  >When</a></li>
+    <li class="nav-item"><a class="nav-link" data-target="#v5" {{action "yell" "v5" }}  >Why</a></li>
+    <li class="nav-item"><a class="nav-link" data-target="#v6" {{action "yell" "v6" }}  >How</a></li>
+
+
+
+  </ul>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+  <h4 id="v1" >Who?</h4>
+  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+  <h4 id="v2">What?</h4>
+  <p>For <br> this <br> rampant <br> abuse <br> of <br> br-tags.</p>
+
+    <h4 id="v3" >Where?</h4>
+  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+  <h4 id="v4" >When?</h4>
+  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+  <h4 id="v5" >Why?</h4>
+  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+  <h4 id="v6" >How?</h4>
+  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+
 
 </div>
+
+
+
+
 
 {{outlet}}
