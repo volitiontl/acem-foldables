@@ -16,6 +16,15 @@ define('hackathon/tests/components/hack-draggable.jshint', ['exports'], function
     assert.ok(false, 'components/hack-draggable.js should pass jshint.\ncomponents/hack-draggable.js: line 8, col 18, Missing semicolon.\ncomponents/hack-draggable.js: line 9, col 27, Missing semicolon.\ncomponents/hack-draggable.js: line 10, col 26, Missing semicolon.\ncomponents/hack-draggable.js: line 11, col 32, Missing semicolon.\ncomponents/hack-draggable.js: line 16, col 39, Missing semicolon.\ncomponents/hack-draggable.js: line 17, col 38, Missing semicolon.\ncomponents/hack-draggable.js: line 20, col 3, Missing semicolon.\n\n7 errors');
   });
 });
+define('hackathon/tests/components/hack-room.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - components/hack-room.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/hack-room.js should pass jshint.');
+  });
+});
 define('hackathon/tests/components/hack-step-todo.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -31,7 +40,7 @@ define('hackathon/tests/controllers/activity.jshint', ['exports'], function (exp
   QUnit.module('JSHint - controllers/activity.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/activity.js should pass jshint.\ncontrollers/activity.js: line 12, col 7, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'controllers/activity.js should pass jshint.\ncontrollers/activity.js: line 19, col 7, Missing semicolon.\n\n1 error');
   });
 });
 define('hackathon/tests/controllers/app.jshint', ['exports'], function (exports) {
@@ -40,7 +49,7 @@ define('hackathon/tests/controllers/app.jshint', ['exports'], function (exports)
   QUnit.module('JSHint - controllers/app.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/app.js should pass jshint.');
+    assert.ok(false, 'controllers/app.js should pass jshint.\ncontrollers/app.js: line 13, col 1, Expected \'}\' to match \'{\' from line 3 and instead saw \'actions\'.\ncontrollers/app.js: line 13, col 8, Expected \')\' and instead saw \':\'.\ncontrollers/app.js: line 13, col 9, Missing semicolon.\ncontrollers/app.js: line 14, col 14, Label \'pickRoom\' on function statement.\ncontrollers/app.js: line 14, col 14, Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.\ncontrollers/app.js: line 14, col 22, Missing name in function declaration.\ncontrollers/app.js: line 14, col 23, \'room\' is defined but never used.\ncontrollers/app.js: line 19, col 1, Unrecoverable syntax error. (86% scanned).\n\n9 errors');
   });
 });
 define('hackathon/tests/controllers/bom.jshint', ['exports'], function (exports) {
@@ -67,7 +76,7 @@ define('hackathon/tests/controllers/demo.jshint', ['exports'], function (exports
   QUnit.module('JSHint - controllers/demo.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/demo.js should pass jshint.\ncontrollers/demo.js: line 9, col 50, Missing semicolon.\n\n1 error');
+    assert.ok(false, 'controllers/demo.js should pass jshint.\ncontrollers/demo.js: line 11, col 50, Missing semicolon.\n\n1 error');
   });
 });
 define('hackathon/tests/controllers/home.jshint', ['exports'], function (exports) {
@@ -357,6 +366,155 @@ define('hackathon/tests/integration/components/hack-draggable-test.jshint', ['ex
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/hack-draggable-test.js should pass jshint.');
+  });
+});
+define('hackathon/tests/integration/components/hack-room-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForComponent)('hack-room', 'Integration | Component | hack room', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template((function () {
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.4.5',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 1,
+              'column': 13
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [['content', 'hack-room', ['loc', [null, [1, 0], [1, 13]]]]],
+        locals: [],
+        templates: []
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template((function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            'fragmentReason': false,
+            'revision': 'Ember@2.4.5',
+            'loc': {
+              'source': null,
+              'start': {
+                'line': 2,
+                'column': 4
+              },
+              'end': {
+                'line': 4,
+                'column': 4
+              }
+            }
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode('      template block text\n');
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+
+      return {
+        meta: {
+          'fragmentReason': {
+            'name': 'missing-wrapper',
+            'problems': ['wrong-type']
+          },
+          'revision': 'Ember@2.4.5',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 5,
+              'column': 2
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode('\n');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode('  ');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [['block', 'hack-room', [], [], 0, null, ['loc', [null, [2, 4], [4, 18]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('hackathon/tests/integration/components/hack-room-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - integration/components/hack-room-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/hack-room-test.js should pass jshint.');
   });
 });
 define('hackathon/tests/integration/components/hack-step-todo-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

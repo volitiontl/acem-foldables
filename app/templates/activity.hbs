@@ -1,11 +1,17 @@
-activity
+
+<h4>add your activities</h4>
+
 <hr>
-
-
 {{input value=name}}
 <button {{action "add"}}>add activity</button>
 <hr>
 {{#each activities as |a| }}
 {{a.name}}<br>
 {{/each}}
+
+<hr>
+{{#link-to "demo"}}
+Next
+
+{{/link-to}}
 {{outlet}}

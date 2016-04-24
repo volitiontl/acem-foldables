@@ -10,7 +10,8 @@ return Ember.$.getJSON('/products.json')
 	this.set('products',a)
 })
 
-}
+},
+test:123
 
 
 });
