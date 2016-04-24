@@ -330,6 +330,8 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
     this.route('statedebug');
     this.route('steps');
     this.route('products');
+    this.route('home', { path: "/" });
+    this.route('home', { path: "/*wildcard" });
   });
 
   exports['default'] = Router;
