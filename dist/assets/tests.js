@@ -13,7 +13,7 @@ define('hackathon/tests/components/hack-draggable.jshint', ['exports'], function
   QUnit.module('JSHint - components/hack-draggable.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/hack-draggable.js should pass jshint.\ncomponents/hack-draggable.js: line 7, col 18, Missing semicolon.\ncomponents/hack-draggable.js: line 11, col 39, Missing semicolon.\ncomponents/hack-draggable.js: line 12, col 38, Missing semicolon.\ncomponents/hack-draggable.js: line 15, col 3, Missing semicolon.\n\n4 errors');
+    assert.ok(false, 'components/hack-draggable.js should pass jshint.\ncomponents/hack-draggable.js: line 8, col 18, Missing semicolon.\ncomponents/hack-draggable.js: line 9, col 27, Missing semicolon.\ncomponents/hack-draggable.js: line 10, col 26, Missing semicolon.\ncomponents/hack-draggable.js: line 14, col 39, Missing semicolon.\ncomponents/hack-draggable.js: line 15, col 38, Missing semicolon.\ncomponents/hack-draggable.js: line 18, col 3, Missing semicolon.\n\n6 errors');
   });
 });
 define('hackathon/tests/controllers/activity.jshint', ['exports'], function (exports) {

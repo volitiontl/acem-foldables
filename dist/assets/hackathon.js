@@ -32,13 +32,15 @@ define('hackathon/components/app-version', ['exports', 'ember-cli-app-version/co
     name: name
   });
 });
-define('hackathon/components/hack-draggable', ['exports', 'ember'], function (exports, _ember) {
-	exports['default'] = _ember['default'].Component.extend({
+define("hackathon/components/hack-draggable", ["exports", "ember"], function (exports, _ember) {
+	exports["default"] = _ember["default"].Component.extend({
 
 		didInsertElement: function didInsertElement() {
 			var _this = this;
 
 			var self = this.$();
+			self.css("left", this.x || 0);
+			self.css("top", this.y || 0);
 			self.draggable({
 				drag: function drag() {
 
@@ -1361,7 +1363,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+42173419"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+d2c74f06"});
 }
 
 /* jshint ignore:end */

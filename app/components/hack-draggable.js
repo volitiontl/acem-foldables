@@ -4,7 +4,10 @@ export default Ember.Component.extend({
 
 didInsertElement:function(){
 
+
 var self=this.$()
+self.css("left",this.x||0)
+self.css("top",this.y||0)
 self.draggable({
 drag: ()=> {
 
