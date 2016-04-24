@@ -41,7 +41,9 @@ define("hackathon/components/hack-draggable", ["exports", "ember"], function (ex
 			var self = this.$();
 			self.css("left", this.x || 0);
 			self.css("top", this.y || 0);
+			self.css('position', "absolute");
 			self.draggable({
+				containment: _ember["default"].$('#container11')[0],
 				drag: function drag() {
 
 					_this.set('x', self.position().left);
@@ -699,7 +701,7 @@ define("hackathon/templates/components/hack-draggable", ["exports"], function (e
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "style", "width:100px;height:100px; border-style:solid;position:absolute");
+        dom.setAttribute(el1, "style", "width:100px;height:100px; border-style:solid;");
         var el2 = dom.createTextNode("\nabc ");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
