@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('bom');
   this.route('activity');
   this.route('statedebug');
+  this.route('steps');
 });
 
 export default Router;
