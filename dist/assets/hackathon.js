@@ -75,6 +75,9 @@ define('hackathon/controllers/activity', ['exports', 'ember'], function (exports
 
 	});
 });
+define('hackathon/controllers/app', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Controller.extend({});
+});
 define('hackathon/controllers/array', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
@@ -340,11 +343,15 @@ define('hackathon/router', ['exports', 'ember', 'hackathon/config/environment'],
     this.route('home', { path: "/*wildcard" });
     this.route('how');
     this.route('contact');
+    this.route('app');
   });
 
   exports['default'] = Router;
 });
 define('hackathon/routes/activity', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('hackathon/routes/app', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
 });
 define('hackathon/routes/bom', ['exports', 'ember'], function (exports, _ember) {
@@ -507,6 +514,57 @@ define("hackathon/templates/activity", ["exports"], function (exports) {
     };
   })());
 });
+define("hackathon/templates/app", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/app.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("Demo\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("hr");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\nStep1,step2,step3\n\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [8, 0], [8, 10]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("hackathon/templates/application", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
@@ -572,7 +630,7 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         morphs[4] = dom.createMorphAt(fragment, 11, 11, contextualElement);
         return morphs;
       },
-      statements: [["inline", "link-to", ["home", "home"], [], ["loc", [null, [4, 0], [4, 25]]]], ["inline", "link-to", ["demo", "demo"], [], ["loc", [null, [5, 0], [5, 25]]]], ["inline", "link-to", ["how", "how"], [], ["loc", [null, [6, 0], [6, 23]]]], ["inline", "link-to", ["contact", "contact"], [], ["loc", [null, [7, 0], [7, 31]]]], ["content", "outlet", ["loc", [null, [10, 0], [10, 10]]]]],
+      statements: [["inline", "link-to", ["home", "application"], [], ["loc", [null, [4, 0], [4, 32]]]], ["inline", "link-to", ["demo", "app"], [], ["loc", [null, [5, 0], [5, 24]]]], ["inline", "link-to", ["how", "how"], [], ["loc", [null, [6, 0], [6, 23]]]], ["inline", "link-to", ["contact", "contact"], [], ["loc", [null, [7, 0], [7, 31]]]], ["content", "outlet", ["loc", [null, [10, 0], [10, 10]]]]],
       locals: [],
       templates: []
     };
@@ -1402,7 +1460,7 @@ define("hackathon/templates/how", ["exports"], function (exports) {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.5",
         "loc": {
@@ -1412,7 +1470,7 @@ define("hackathon/templates/how", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 17,
             "column": 0
           }
         },
@@ -1424,6 +1482,36 @@ define("hackathon/templates/how", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h4");
+        var el2 = dom.createTextNode("How does this work?");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("p");
+        var el2 = dom.createTextNode("\n	All Products are made of durable thin components that assemble together. When unassembled, they take up very little space allowing us to ship more stuff. You can reuse parts to assemble other products.\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("br");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("h4");
+        var el2 = dom.createTextNode("Is it hard to assemble?");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("p");
+        var el2 = dom.createTextNode("\nNo, All products are color coded to make it easy to assemble and disassembled into it's original size.\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -1432,11 +1520,10 @@ define("hackathon/templates/how", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        dom.insertBoundary(fragment, 0);
+        morphs[0] = dom.createMorphAt(fragment, 11, 11, contextualElement);
         return morphs;
       },
-      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]]]],
+      statements: [["content", "outlet", ["loc", [null, [16, 0], [16, 10]]]]],
       locals: [],
       templates: []
     };

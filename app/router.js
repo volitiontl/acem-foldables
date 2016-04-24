@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('home',{path:"/*wildcard"});
   this.route('how');
   this.route('contact');
+  this.route('app');
 });
 
 export default Router;
