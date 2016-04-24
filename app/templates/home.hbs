@@ -1,4 +1,17 @@
-<hr>
+
+<div class="jumbotron">
+  <h1 class="display-3 ">ACME Foldable</h1>
+  <p class="lead">We minimize space gear</p>
+  <hr class="m-y-2">
+  <p>We offer a ton of approved space gear that reduce weight and space making it easy to ship anywhere in the solar system.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#/app" role="button" >See the Demo</a>
+    <a class="btn btn-primary btn-lg" href="#/how" role="button">Learn more</a>
+  </p>
+
+</div>
+
+
 
 <!-- Custom css that makes this example work like it does: -->
 <style type="text/css" scoped>
@@ -12,7 +25,6 @@
 
 <!-- Actual scrollspy markup: -->
 <nav id="navbar-example2" class="navbar navbar-default">
-  <h3 class="navbar-brand">Foldable</h3>
   <ul class="nav nav-pills">
     <li class="nav-item"><a class="nav-link" data-target="#v1" {{action "yell" "v1" }}>Who</a></li>
     <li class="nav-item"><a class="nav-link" data-target="#v2" {{action "yell" "v2" }}  >What</a></li>
@@ -27,19 +39,17 @@
 </nav>
 <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
   <h4 id="v1" >Who?</h4>
-  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+{{who}}
   <h4 id="v2">What?</h4>
-  <p>For <br> this <br> rampant <br> abuse <br> of <br> br-tags.</p>
-
+{{what}}
     <h4 id="v3" >Where?</h4>
-  <p>May <br> the <br> gods <br> forgive <br> me.</p>
-  <h4 id="v4" >When?</h4>
-  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+{{where}}  
+<h4 id="v4" >When?</h4>
+{{when}}
   <h4 id="v5" >Why?</h4>
-  <p>May <br> the <br> gods <br> forgive <br> me.</p>
+{{why}}
   <h4 id="v6" >How?</h4>
-  <p>May <br> the <br> gods <br> forgive <br> me.</p>
-
+{{how}}
 
 </div>
 

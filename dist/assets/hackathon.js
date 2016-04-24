@@ -114,15 +114,22 @@ define('hackathon/controllers/demo', ['exports', 'ember'], function (exports, _e
 
    });
 });
-define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _ember) {
-  exports['default'] = _ember['default'].Controller.extend({
+define("hackathon/controllers/home", ["exports", "ember"], function (exports, _ember) {
+	exports["default"] = _ember["default"].Controller.extend({
 
-    activate: function activate() {
-      this._super.apply(this, arguments); // Call super at the beginning
-      window.scrollTo(0, 0);
-    }
+		who: "ACME-Foldable",
+		what: "ACME-Foldable",
+		where: "Here",
+		when: "Now",
+		why: "Because",
+		how: "Magic",
 
-  });
+		activate: function activate() {
+			this._super.apply(this, arguments); // Call super at the beginning
+			window.scrollTo(0, 0);
+		}
+
+	});
 });
 define('hackathon/controllers/how', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({});
@@ -571,7 +578,7 @@ define("hackathon/templates/application", ["exports"], function (exports) {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type", "multiple-nodes"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.5",
         "loc": {
@@ -581,7 +588,7 @@ define("hackathon/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 16,
             "column": 0
           }
         },
@@ -593,27 +600,59 @@ define("hackathon/templates/application", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createTextNode("\n\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode(" \n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("hr");
-        dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("nav");
+        dom.setAttribute(el1, "class", "navbar navbar-light bg-faded");
+        dom.setAttribute(el1, "style", "background-color:lightgrey");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "nav navbar-nav");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "nav-item nav-link active");
+        dom.setAttribute(el3, "href", "#/home");
+        var el4 = dom.createTextNode("Home ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("span");
+        dom.setAttribute(el4, "class", "sr-only");
+        var el5 = dom.createTextNode("(current)");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "nav-item nav-link");
+        dom.setAttribute(el3, "href", "#/app");
+        var el4 = dom.createTextNode("demo");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "nav-item nav-link");
+        dom.setAttribute(el3, "href", "#/how");
+        var el4 = dom.createTextNode("how");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "nav-item nav-link");
+        dom.setAttribute(el3, "href", "#/contact");
+        var el4 = dom.createTextNode("contact");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -622,15 +661,11 @@ define("hackathon/templates/application", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(5);
-        morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-        morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
-        morphs[2] = dom.createMorphAt(fragment, 5, 5, contextualElement);
-        morphs[3] = dom.createMorphAt(fragment, 7, 7, contextualElement);
-        morphs[4] = dom.createMorphAt(fragment, 11, 11, contextualElement);
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         return morphs;
       },
-      statements: [["inline", "link-to", ["home", "application"], [], ["loc", [null, [4, 0], [4, 32]]]], ["inline", "link-to", ["demo", "app"], [], ["loc", [null, [5, 0], [5, 24]]]], ["inline", "link-to", ["how", "how"], [], ["loc", [null, [6, 0], [6, 23]]]], ["inline", "link-to", ["contact", "contact"], [], ["loc", [null, [7, 0], [7, 31]]]], ["content", "outlet", ["loc", [null, [10, 0], [10, 10]]]]],
+      statements: [["content", "outlet", ["loc", [null, [15, 0], [15, 10]]]]],
       locals: [],
       templates: []
     };
@@ -1116,7 +1151,7 @@ define("hackathon/templates/home", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 51,
+            "line": 61,
             "column": 0
           }
         },
@@ -1128,9 +1163,64 @@ define("hackathon/templates/home", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("hr");
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "jumbotron");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h1");
+        dom.setAttribute(el2, "class", "display-3 ");
+        var el3 = dom.createTextNode("ACME Foldable");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        dom.setAttribute(el2, "class", "lead");
+        var el3 = dom.createTextNode("We minimize space gear");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("hr");
+        dom.setAttribute(el2, "class", "m-y-2");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        var el3 = dom.createTextNode("We offer a ton of approved space gear that reduce weight and space making it easy to ship anywhere in the solar system.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("p");
+        dom.setAttribute(el2, "class", "lead");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "btn btn-primary btn-lg");
+        dom.setAttribute(el3, "href", "#/app");
+        dom.setAttribute(el3, "role", "button");
+        var el4 = dom.createTextNode("See the Demo");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "class", "btn btn-primary btn-lg");
+        dom.setAttribute(el3, "href", "#/how");
+        dom.setAttribute(el3, "role", "button");
+        var el4 = dom.createTextNode("Learn more");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment(" Custom css that makes this example work like it does: ");
         dom.appendChild(el0, el1);
@@ -1151,13 +1241,6 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         var el1 = dom.createElement("nav");
         dom.setAttribute(el1, "id", "navbar-example2");
         dom.setAttribute(el1, "class", "navbar navbar-default");
-        var el2 = dom.createTextNode("\n  ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("h3");
-        dom.setAttribute(el2, "class", "navbar-brand");
-        var el3 = dom.createTextNode("Foldable");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("ul");
@@ -1248,27 +1331,9 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         var el3 = dom.createTextNode("Who?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("May ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" the ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" gods ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" forgive ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" me.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
@@ -1277,89 +1342,31 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         var el3 = dom.createTextNode("What?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("For ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" this ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" rampant ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" abuse ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" of ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" br-tags.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n    ");
+        var el2 = dom.createTextNode("\n    ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("h4");
         dom.setAttribute(el2, "id", "v3");
         var el3 = dom.createTextNode("Where?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("May ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" the ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" gods ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" forgive ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" me.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("  \n");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("h4");
         dom.setAttribute(el2, "id", "v4");
         var el3 = dom.createTextNode("When?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("May ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" the ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" gods ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" forgive ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" me.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
@@ -1368,27 +1375,9 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         var el3 = dom.createTextNode("Why?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("May ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" the ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" gods ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" forgive ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" me.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
@@ -1397,29 +1386,11 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         var el3 = dom.createTextNode("How?");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n  ");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("p");
-        var el3 = dom.createTextNode("May ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" the ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" gods ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" forgive ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("br");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode(" me.");
-        dom.appendChild(el2, el3);
+        var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n\n");
+        var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n\n\n\n\n");
@@ -1431,24 +1402,31 @@ define("hackathon/templates/home", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [8, 3]);
+        var element0 = dom.childAt(fragment, [9, 1]);
         var element1 = dom.childAt(element0, [1, 0]);
         var element2 = dom.childAt(element0, [3, 0]);
         var element3 = dom.childAt(element0, [5, 0]);
         var element4 = dom.childAt(element0, [7, 0]);
         var element5 = dom.childAt(element0, [9, 0]);
         var element6 = dom.childAt(element0, [11, 0]);
-        var morphs = new Array(7);
+        var element7 = dom.childAt(fragment, [11]);
+        var morphs = new Array(13);
         morphs[0] = dom.createElementMorph(element1);
         morphs[1] = dom.createElementMorph(element2);
         morphs[2] = dom.createElementMorph(element3);
         morphs[3] = dom.createElementMorph(element4);
         morphs[4] = dom.createElementMorph(element5);
         morphs[5] = dom.createElementMorph(element6);
-        morphs[6] = dom.createMorphAt(fragment, 12, 12, contextualElement);
+        morphs[6] = dom.createMorphAt(element7, 3, 3);
+        morphs[7] = dom.createMorphAt(element7, 7, 7);
+        morphs[8] = dom.createMorphAt(element7, 11, 11);
+        morphs[9] = dom.createMorphAt(element7, 15, 15);
+        morphs[10] = dom.createMorphAt(element7, 19, 19);
+        morphs[11] = dom.createMorphAt(element7, 23, 23);
+        morphs[12] = dom.createMorphAt(fragment, 13, 13, contextualElement);
         return morphs;
       },
-      statements: [["element", "action", ["yell", "v1"], [], ["loc", [null, [17, 63], [17, 86]]]], ["element", "action", ["yell", "v2"], [], ["loc", [null, [18, 63], [18, 86]]]], ["element", "action", ["yell", "v3"], [], ["loc", [null, [19, 63], [19, 86]]]], ["element", "action", ["yell", "v4"], [], ["loc", [null, [20, 63], [20, 86]]]], ["element", "action", ["yell", "v5"], [], ["loc", [null, [21, 63], [21, 86]]]], ["element", "action", ["yell", "v6"], [], ["loc", [null, [22, 63], [22, 86]]]], ["content", "outlet", ["loc", [null, [50, 0], [50, 10]]]]],
+      statements: [["element", "action", ["yell", "v1"], [], ["loc", [null, [29, 63], [29, 86]]]], ["element", "action", ["yell", "v2"], [], ["loc", [null, [30, 63], [30, 86]]]], ["element", "action", ["yell", "v3"], [], ["loc", [null, [31, 63], [31, 86]]]], ["element", "action", ["yell", "v4"], [], ["loc", [null, [32, 63], [32, 86]]]], ["element", "action", ["yell", "v5"], [], ["loc", [null, [33, 63], [33, 86]]]], ["element", "action", ["yell", "v6"], [], ["loc", [null, [34, 63], [34, 86]]]], ["content", "who", ["loc", [null, [42, 0], [42, 7]]]], ["content", "what", ["loc", [null, [44, 0], [44, 8]]]], ["content", "where", ["loc", [null, [46, 0], [46, 9]]]], ["content", "when", ["loc", [null, [48, 0], [48, 8]]]], ["content", "why", ["loc", [null, [50, 0], [50, 7]]]], ["content", "how", ["loc", [null, [52, 0], [52, 7]]]], ["content", "outlet", ["loc", [null, [60, 0], [60, 10]]]]],
       locals: [],
       templates: []
     };
