@@ -1,0 +1,19 @@
+[
+{
+"name":"product1",
+"image":"/product1.jpg",
+"description":"a fine table"
+},{
+"name":"product2",
+"image":"/product1.jpg",
+"description":"a fine table"
+},{
+"name":"product3",
+"image":"/product1.jpg",
+"description":"a fine table"
+},{
+"name":"product4",
+"image":"/product1.jpg",
+"description":"a fine table"
+}
+]

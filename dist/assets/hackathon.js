@@ -121,10 +121,17 @@ define('hackathon/controllers/home', ['exports', 'ember'], function (exports, _e
 define('hackathon/controllers/object', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller;
 });
-define("hackathon/controllers/products", ["exports", "ember"], function (exports, _ember) {
-	exports["default"] = _ember["default"].Controller.extend({
+define('hackathon/controllers/products', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Controller.extend({
 
-		products: [{ name: "panel" }, { name: "panel2" }, { name: "panel3" }]
+		products: [],
+		init: function init() {
+			var _this = this;
+
+			return _ember['default'].$.getJSON('/products.json').then(function (a) {
+				_this.set('products', a);
+			});
+		}
 
 	});
 });
@@ -1370,9 +1377,11 @@ define("hackathon/templates/products", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
-          var el1 = dom.createElement("br");
+          var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n\n\n");
+          var el1 = dom.createElement("hr");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -1674,7 +1683,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+02bd9096"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+ca3ea646"});
 }
 
 /* jshint ignore:end */

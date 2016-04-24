@@ -67,7 +67,7 @@ define('hackathon/tests/controllers/products.jshint', ['exports'], function (exp
   QUnit.module('JSHint - controllers/products.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/products.js should pass jshint.');
+    assert.ok(false, 'controllers/products.js should pass jshint.\ncontrollers/products.js: line 10, col 27, Missing semicolon.\ncontrollers/products.js: line 11, col 3, Missing semicolon.\n\n2 errors');
   });
 });
 define('hackathon/tests/controllers/statedebug.jshint', ['exports'], function (exports) {
