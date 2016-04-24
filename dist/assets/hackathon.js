@@ -1674,7 +1674,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+d2c74f06"});
+  require("hackathon/app")["default"].create({"name":"hackathon","version":"0.0.0+02bd9096"});
 }
 
 /* jshint ignore:end */
