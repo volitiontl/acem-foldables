@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('activity');
   this.route('statedebug');
   this.route('steps');
+  this.route('products');
 });
 
 export default Router;
