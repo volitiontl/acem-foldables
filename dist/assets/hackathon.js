@@ -53,6 +53,9 @@ define("hackathon/components/hack-draggable", ["exports", "ember"], function (ex
 
 	});
 });
+define('hackathon/components/hack-step-todo', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({});
+});
 define('hackathon/controllers/activity', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
 
@@ -730,6 +733,67 @@ define("hackathon/templates/components/hack-draggable", ["exports"], function (e
     };
   })());
 });
+define("hackathon/templates/components/hack-step-todo", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.5",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 0
+          }
+        },
+        "moduleName": "hackathon/templates/components/hack-step-todo.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode(" ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode(" ");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(4);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["type", "checkbox", "checked", ["subexpr", "@mut", [["get", "status", ["loc", [null, [1, 32], [1, 38]]]]], [], []]], ["loc", [null, [1, 0], [1, 40]]]], ["content", "name", ["loc", [null, [1, 41], [1, 49]]]], ["content", "status", ["loc", [null, [1, 50], [1, 60]]]], ["content", "yield", ["loc", [null, [4, 0], [4, 9]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("hackathon/templates/demo", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -1392,8 +1456,6 @@ define("hackathon/templates/steps", ["exports"], function (exports) {
           var el0 = dom.createDocumentFragment();
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
-          var el1 = dom.createElement("br");
-          dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n\n");
           dom.appendChild(el0, el1);
           return el0;
@@ -1404,7 +1466,7 @@ define("hackathon/templates/steps", ["exports"], function (exports) {
           dom.insertBoundary(fragment, 0);
           return morphs;
         },
-        statements: [["content", "s.name", ["loc", [null, [6, 0], [6, 10]]]]],
+        statements: [["inline", "hack-step-todo", [], ["name", ["subexpr", "@mut", [["get", "s.name", ["loc", [null, [6, 22], [6, 28]]]]], [], []], "status", ["subexpr", "@mut", [["get", "s.done", ["loc", [null, [6, 36], [6, 42]]]]], [], []]], ["loc", [null, [6, 0], [6, 45]]]]],
         locals: ["s"],
         templates: []
       };
